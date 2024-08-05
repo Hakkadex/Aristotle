@@ -1,3 +1,5 @@
+mkdir Aristotle
+cd Aristotle
 Open a Terminal
 nano /path/to/your/directory/aristotle.py
 copy and paste source code into nano, save and exit nano
