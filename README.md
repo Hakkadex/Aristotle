@@ -34,4 +34,9 @@ if __name__ == "__main__":
 
     subject = " ".join(sys.argv[1:])
     print(f"Subject to search: {subject}")  # Debug statement
+
+
+
+
+
     get_wikipedia_page(subject)
