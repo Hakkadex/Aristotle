@@ -1,42 +1,11 @@
-#!/usr/bin/env python3
-
-import sys
-import requests
-
-def get_wikipedia_page(subject):
-    user_agent = 'Aristotle'  # Custom User-Agent
-    url = f"https://en.wikipedia.org/w/api.php"
-    params = {
-        'action': 'query',
-        'format': 'json',
-        'titles': subject,
-        'prop': 'extracts',
-        'exintro': True
-    }
-    headers = {
-        'User-Agent': user_agent
-    }
-    
-    response = requests.get(url, headers=headers, params=params)
-    data = response.json()
-    pages = data.get('query', {}).get('pages', {})
-    for page_id, page in pages.items():
-        if page_id != '-1':
-            print(f"Title: {page.get('title', 'No title available')}")
-            print(f"Summary: {page.get('extract', 'No summary available')}")
-        else:
-            print(f"Page '{subject}' does not exist on Wikipedia.")
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: aristotleget <subject>")
-        sys.exit(1)
-
-    subject = " ".join(sys.argv[1:])
-    print(f"Subject to search: {subject}")  # Debug statement
-
-
-
-
-
-    get_wikipedia_page(subject)
+Open a Terminal
+nano /path/to/your/directory/aristotle.py
+copy and paste source code into nano, save and exit nano
+Make the script executable with the following command:
+chmod +x /path/to/your/directory/aristotle.py
+Create a symbolic link to make the script accessible from anywhere in the terminal
+sudo ln -s /path/to/your/directory/aristotle.py /usr/local/bin/aristotleget
+To use the tool type aristotleget <subject>
+Example usage
+aristotleget Atlantis
+Your terminal will now explain to you what Atlantis is by pasting a wikipedia description inside the terminal
