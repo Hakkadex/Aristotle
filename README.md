@@ -9,7 +9,6 @@ nano /path/to/your/directory/aristotle.py
 Paste this Code into nano save and exit
 
 
-
 #!/usr/bin/env python3
 
 import sys
